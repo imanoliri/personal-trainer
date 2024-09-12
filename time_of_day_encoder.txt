@@ -1,0 +1,6 @@
+A single number defines with 0 or 1 if the training happens at the time of day the digit refers to.
+The times of day are: before_breakfast, after_breakfast, before_lunch, after_lunch, afternoon, before_dinner, after_dinner
+
+For example.
+0100100 --> after breakfast and afternoon
+0001000 --> after lunch
