@@ -15,7 +15,9 @@ def add_bioparameters(df: pd.DataFrame) -> pd.DataFrame:
 def calculate_bioparameters(data: dict) -> dict:
     """
     - BMR (Basal Metabolic Rate)
+    - TDEE (Total Daily Energy Expenditure)
     - BMI (Body Mass Index)
+    - BMI prime (BMI over 1)
     - ...
     """
     data["BMR"] = int(bioparameters.BMR(**data))
