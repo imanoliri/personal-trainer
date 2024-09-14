@@ -21,8 +21,9 @@ def exercise_plan_from_order(order) -> pd.DataFrame:
         columns=[
             "Macrocycle",
             "Mesocycle",
-            "Week",
-            "Day",
+            "Microcycle",
+            "Micro_Duration_Days",
+            "Micro_Exercise_Day",
             "Exercise",
             "Sets",
             "Reps",
@@ -36,18 +37,18 @@ def parse_exercise_order(order) -> pd.DataFrame:
     plan_data = []
     for ma, macro in order.items():
         for me, meso in macro.items():
-            weeks, days_per_week = meso[0]
+            micros, micro_days, days_exercise_micro = meso[0]
             for exercise_definition in meso[1:]:
                 days_values = list(
                     zip(
-                        *get_exercise_values(weeks, days_per_week, *exercise_definition)
+                        *get_exercise_values(micros, days_exercise_micro, *exercise_definition)
                     )
                 )
-                for (week, day), day_values in zip(
-                    [(w, d) for w in range(weeks) for d in range(days_per_week)],
+                for (micro, day_exercise), day_values in zip(
+                    [(w, d) for w in range(micros) for d in range(days_exercise_micro)],
                     days_values,
                 ):
-                    plan_data.append((ma, me, week + 1, day + 1, *day_values))
+                    plan_data.append((ma, me, micro + 1, micro_days, day_exercise + 1, *day_values))
 
     return plan_data
 
@@ -55,8 +56,8 @@ def parse_exercise_order(order) -> pd.DataFrame:
 ExerciseValuesDefinition = Union[float, Tuple[float]]
 
 
-def get_exercise_values(weeks: int, days_per_week: int, *args):
-    iterations = weeks * days_per_week
+def get_exercise_values(micros: int, days_per_micro: int, *args):
+    iterations = micros * days_per_micro
     return tuple(get_values_from_definition(iterations, a) for a in args)
 
 
