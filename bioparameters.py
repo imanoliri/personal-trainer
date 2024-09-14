@@ -8,3 +8,10 @@ def BMR(sex: str, age: int, weight: float, height: float, **kwargs) -> float:
 
 def BMI(weight: float, height: float, **kwargs) -> float:
     return weight / ((height / 100) ** 2)
+
+def BMI_prime(**kwargs) -> float:
+    if 'BMI' in kwargs:
+        bmi = kwargs['BMI']
+    else:
+        bmi = BMI(**kwargs)
+    return bmi / 25
