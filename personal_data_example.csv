@@ -1,3 +1,3 @@
-,id,name,age,sex,height,weight,weight_target,cardio,cardio_target,strength,strength_target,time_target,activity_current,commitment,training_time_of_day_preference,training_days_weekly_preference,smoking,alcohol_weekly,BMR,BMI
-0,1,Aitor,25,M,175,85,75,2,3,2,4,6,2,4,100100,3,0,3,1948,27.8
-1,2,Marta,23,F,168,70,70,1,4,1,1,12,3,2,1000,2,0,0,1589,24.8
+,id,name,age,sex,height,weight,weight_target,cardio,cardio_target,strength,strength_target,time_target,activity_current,commitment,training_time_of_day_preference,training_days_weekly_preference,smoking,alcohol_weekly,BMR,BMI,BMI_prime,TDEE
+0,1,Aitor,25,M,175,85,75,2,3,2,4,6,2,4,100100,3,0,3,1948,27.8,1.11,2678
+1,2,Marta,23,F,168,70,70,1,4,1,1,12,3,2,1000,2,0,0,1589,24.8,0.99,2462
