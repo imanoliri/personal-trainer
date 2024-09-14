@@ -19,6 +19,7 @@ def calculate_bioparameters(data: dict) -> dict:
     - ...
     """
     data["BMR"] = int(bioparameters.BMR(**data))
+    data["TDEE"] = int(bioparameters.TDEE(**data))
     data["BMI"] = round(bioparameters.BMI(**data), 1)
     data["BMI_prime"] = round(bioparameters.BMI_prime(**data), 2)
 
