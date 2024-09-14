@@ -5,31 +5,39 @@ import yaml
 from typing import Tuple, Union, List
 import numpy as np
 
-
-def generate_exercise_plan() -> pd.DataFrame:
-    with open(EXERCISE_INPUT_FILE, "r") as fp:
-        exercise_order = yaml.safe_load(fp)
-
-    exercise_plan = exercise_plan_from_order(exercise_order)
-
-    exercise_plan.to_csv(EXERCISE_DATA_FILE)
-
-
-def exercise_plan_from_order(order) -> pd.DataFrame:
-    return pd.DataFrame(
-        parse_exercise_order(order),
-        columns=[
+EXERCISE_PLAN_VARIABLES_TIME = [
             "Macrocycle",
             "Mesocycle",
             "Microcycle",
             "Micro_Duration_Days",
             "Micro_Exercise_Day",
+            ]
+
+EXERCISE_PLAN_VARIABLES_EXERCISE = [
             "Exercise",
             "Sets",
             "Reps",
             "Weight",
             "Duration",
-        ],
+]
+
+
+def generate_exercise_plan() -> pd.DataFrame:
+    with open(EXERCISE_INPUT_FILE, "r") as fp:
+        exercise_order = yaml.safe_load(fp)
+
+    exercise_plan = exercise_plan_to_time_vs_exercises(exercise_plan_from_order(exercise_order))
+
+    exercise_plan.to_csv(EXERCISE_DATA_FILE)
+
+def exercise_plan_to_time_vs_exercises(df: pd.DataFrame) -> pd.DataFrame:
+    return df.set_index(EXERCISE_PLAN_VARIABLES_TIME + [EXERCISE_PLAN_VARIABLES_EXERCISE[0]]).unstack().reorder_levels([1,0],axis=1)
+
+
+def exercise_plan_from_order(order) -> pd.DataFrame:
+    return pd.DataFrame(
+        parse_exercise_order(order),
+        columns=EXERCISE_PLAN_VARIABLES_TIME + EXERCISE_PLAN_VARIABLES_EXERCISE,
     )
 
 
