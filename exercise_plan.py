@@ -31,7 +31,8 @@ def generate_exercise_plan() -> pd.DataFrame:
     exercise_plan.to_csv(EXERCISE_DATA_FILE)
 
 def exercise_plan_to_time_vs_exercises(df: pd.DataFrame) -> pd.DataFrame:
-    return df.set_index(EXERCISE_PLAN_VARIABLES_TIME + [EXERCISE_PLAN_VARIABLES_EXERCISE[0]]).unstack().reorder_levels([1,0],axis=1)
+    df_time_vs_exercise = df.set_index(EXERCISE_PLAN_VARIABLES_TIME + [EXERCISE_PLAN_VARIABLES_EXERCISE[0]]).unstack().reorder_levels([1,0],axis=1)
+    return df_time_vs_exercise.loc[:, df_time_vs_exercise.columns.get_level_values(0).unique()]
 
 
 def exercise_plan_from_order(order) -> pd.DataFrame:
