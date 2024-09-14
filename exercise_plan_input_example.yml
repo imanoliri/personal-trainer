@@ -1,9 +1,9 @@
 macro_1:
   meso_1:
-    - [8, 3]
+    - [8, 7, 3]
     - [pushups, 3, [15, 25], null, null]
     - [deadlift, 3, 10, [20, 40], null]
   meso_2:
-    - [8, 3]
+    - [12, 10, 3]
     - [run, 1, null, null, [15, 25]]
     - [planks, 3, null, null, [1, 5]]
