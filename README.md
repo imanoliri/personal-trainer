@@ -3,6 +3,7 @@ This project provides tools for a personal trainer managing multiple people. It 
 
 
 ## Workflow
+### Steps
 1. Input datos
 2. Parámetros secundarios
 3. Macro y Mesociclos
@@ -10,13 +11,29 @@ This project provides tools for a personal trainer managing multiple people. It 
 5. Plan de ejercicio
 6. Seguimiento semanal
 7. Seguimiento bisemanal
-8. Report final de fase
-9. Corregir/adaptar plan sobre la marcha
-10. Report final de tratamiento
-11. Encuesta de satisfacción
+8. Report final de macro
+9. Report final de meso
+10. Corregir/adaptar plan sobre la marcha
+11. Report final de tratamiento
+12. Encuesta de satisfacción
 
 ![flowchart](documentation/personal_trainer_flowchart.svg)
 
+### Coach working hours
+1. 0.15
+2. 0.65
+3. 0.5
+4. 0.5 / 1.5
+5. 1 / 2
+6. 0.15
+7. 0.5
+8. 0.4
+9. 0.5
+10. 1
+11. 0.5
+12. 0.15
+
+Total hours per client (assuming 1 year, 2 macros, 8 mesos) are 24 hours (6 + 2x0.4 + 8x0.5 + 20x0.65). 
 
 ## Finished tools
 
